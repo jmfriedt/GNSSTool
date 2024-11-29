@@ -35,3 +35,7 @@ and a functional ``clang/clang++`` compiler
 qmake QGNSS.pro  # generate Makefile in current directory
 make             # generate Makefile in QGNSS: check that CC = clang and CXX = clang++
 ```
+
+<img src="2024-11-29-180920_2704x1050_scrot.png">
+
+Version compiled and executed on Debian GNU/Linux.
