@@ -6,9 +6,10 @@
 #include <functional>
 #include <atomic>
 #include <chrono>
-#include "QG_Uart.h"
 #include "QG_Common.h"
 #include "QG_Print.h"
+#include "QG_Uart.h"
+
 /// <summary>
 /// USART protocol used in the STM32 bootloader
 /// </summary>

@@ -63,10 +63,10 @@
  {
      std::size_t filesize = 0;
      FILE* fp = fopen(filename, /*"rb"*/mode);
-     if (fp == INVALID_HANDLE_VALUE)
-     {
-         return filesize;
-     }
+//     if (fp == INVALID_HANDLE_VALUE)
+//     {
+//        return filesize;
+//     }
      if (!fp) { filesize = 0; return filesize; }
      fseek(fp, 0L, SEEK_END);
      filesize = ftell(fp);
@@ -81,10 +81,10 @@
  {
      std::size_t readsize = 0;
      FILE* fp = fopen(filename, /*"rb"*/mode);
-     if (fp == INVALID_HANDLE_VALUE )
-     {
-         return readsize;
-     }
+//     if (fp == INVALID_HANDLE_VALUE )
+//     {
+//         return readsize;
+//     }
      data.resize(size);
      readsize= fread(data.data(), 1, size, fp);
      data= data.substr(0, readsize);
@@ -104,18 +104,18 @@
      return std::string();
    }
 
-   int size = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
+   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF
    std::string ret = std::string(size, 0);
-   WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL); // CP_UTF8
+//   WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL); // CP_UTF8
    return ret;
  }
 
  std::wstring StringToWString(const std::string& str)
  {
-   int len = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);
+   int len; // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0); JMF
    wchar_t* wide = new wchar_t[len + 1];
-   memset(wide, '\0', sizeof(wchar_t) * (len + 1));
-   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);
+//   memset(wide, '\0', sizeof(wchar_t) * (len + 1));
+//   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);  JMF
    std::wstring w_str(wide);
    delete[] wide;
    return w_str;

@@ -49,7 +49,7 @@
     setBbmsgStr ({BROM_BASE::brmsgtype::bb_Info,x});\
 
 #include "mtk_brom_3352.h"
-#include <qt_windows.h>
+// #include <qt_windows.h>
 MTK_BROM_3352::MTK_BROM_3352(MTK_Base *parent)
     : MTK_Base{parent}
 {

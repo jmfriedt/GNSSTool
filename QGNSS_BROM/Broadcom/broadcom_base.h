@@ -97,12 +97,12 @@ class QGNSS_BROM_EXPORT Broadcom_Base : public BROM_BASE
     char sNAK[3];
     int schunks;//16KB
     upgradeConstants(){
-      strcpy_s (&sFLASHER_IDENTIFIER[0],sizeof (char)*9,"B1557704");
-      strcpy_s (&sFLASHER_SYNC[0],sizeof (char)*9,"1C134251");
-      strcpy_s (&sDEVICE_START_COMMUNICATION[0],sizeof (char)*3,"A3");
-      strcpy_s (&sFLASHER_READY[0],sizeof (char)*3,"4A");
-      strcpy_s (&sACK[0],sizeof (char)*3,"CC");
-      strcpy_s (&sNAK[0],sizeof (char)*3,"DD");
+      strncpy (&sFLASHER_IDENTIFIER[0],"B1557704",sizeof (char)*9);
+      strncpy (&sFLASHER_SYNC[0],"1C134251",sizeof (char)*9);
+      strncpy (&sDEVICE_START_COMMUNICATION[0],"A3",sizeof (char)*3);
+      strncpy (&sFLASHER_READY[0],"4A",sizeof (char)*3);
+      strncpy (&sACK[0],"CC",sizeof (char)*3);
+      strncpy (&sNAK[0],"DD",sizeof (char)*3);
       schunks=16*1024;
     }
   }UpgradeConstants;

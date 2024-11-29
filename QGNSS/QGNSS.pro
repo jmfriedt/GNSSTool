@@ -5,14 +5,19 @@ QT += webenginewidgets
 RC_ICONS = Quectel.ico
 
 DEFINES += _RTLDLL NO_STRICT TRACE ENAGLO ENAQZS ENAGAL ENACMP ENAIRN NFREQ=5 NEXOBS=3
-DEFINES += WIN32
+# DEFINES += WIN32
 
 CONFIG += c++17
 
-win32:DEFINES += _WINSOCKAPI_
+QMAKE_CXXFLAGS += -std=c++17
 
-LIBS += -lwinmm
-LIBS += -lDbgHelp
+# win32:DEFINES += _WINSOCKAPI_
+
+# LIBS += -lwinmm
+# LIBS += -lDbgHelp
+
+QMAKE_CC=clang
+QMAKE_CXX=clang++
 
 TARGET = QGNSS
 TEMPLATE = app

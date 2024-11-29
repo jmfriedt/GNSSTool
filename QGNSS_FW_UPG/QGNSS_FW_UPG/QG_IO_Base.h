@@ -1,12 +1,22 @@
-
 #include <string>
 #include <list>
 #include <functional>
 #include "QG_Print.h"
 #include "QG_Common.h"
 
+#include <Qt>
+#include <string>
+#include <list>
+#include <functional>
+#include "QG_Print.h"
+#include "QG_Common.h"
+
+#define QG_Handle Qt::HANDLE
+
 #define RETURN_ERROR_SIZE 0
 
+#ifndef __QG_IO_Base
+#define __QG_IO_Base
 class QG_PORTEXTERN QG_IO_Base
 {
 public:
@@ -43,3 +53,4 @@ public:
    WriteReady_FC WriteReady;
    ErrorMsg_FC ErrorMsg;
 };
+#endif

@@ -63,7 +63,7 @@ Deviation_Map::Deviation_Map(QWidget *parent) : QWidget(parent),
     ui->customPlot->yAxis->setBasePen(QPen(Qt::NoPen));
     ui->customPlot->yAxis->setSubTickPen(QPen(Qt::NoPen));
     ui->customPlot->yAxis->setTickPen(QPen(Qt::NoPen));
-    ui->customPlot->axisRect(0)->setAutoMargins(false); // 去除边框
+    ui->customPlot->axisRect(0)->setAutoMargins(QCP::msNone); // 去除边框 JMF
 
     ui->widget_dis_scale->setTickSize(getMapScale());
 

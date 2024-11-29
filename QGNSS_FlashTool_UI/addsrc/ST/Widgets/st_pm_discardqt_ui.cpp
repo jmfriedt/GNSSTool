@@ -1,5 +1,7 @@
 #include "st_pm_discardqt_ui.h"
 
+#define INVALID_HANDLE_VALUE ((void*)(long long)-1)
+
 using namespace std::placeholders;
 
 

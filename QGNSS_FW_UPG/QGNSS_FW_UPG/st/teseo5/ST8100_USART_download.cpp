@@ -1,4 +1,11 @@
+#include <string>
+#include <list>
+#include <functional>
+#include "QG_Print.h"
+#include "QG_Common.h"
+
 #include "ST8100_USART_download.h"
+#include <cmath>
 
 ST8100_USART_download::ST8100_USART_download()
 {
@@ -527,7 +534,7 @@ bool ST8100_USART_download::write_memory_command_hp(unsigned int time,
     int mis = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count();
     int progress = QG_get_progress(size, total_send_size, 100);
     float rate=((float)per_pkg_size_/(mis/1000.0))/1000;//
-    auto rate_s= std::to_string (std::round (rate*10.0)/10);
+    auto rate_s= std::to_string (round (rate*10.0)/10);
     char rate_fmt[1024];
     sprintf (rate_fmt,"%d Bytes/%d Bytes    %s KBps",total_send_size,size,rate_s.c_str ());
     QGPROGRESS_FMT(Write_Memory_name, 100,rate_fmt, progress);

@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QMessageBox>
+#include <cmath>
 
 NTRIP_ClientDialog::NTRIP_ClientDialog(QWidget *parent) : QDialog(parent),
                                                           ui(new Ui::NTRIP_ClientDialog)

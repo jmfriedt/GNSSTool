@@ -1,5 +1,8 @@
 #include "QG_Print.h"
 
+#include <algorithm>
+
+#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT
 
 QG_NAMESPACE_BEGAIN
 std::mutex print_mutex;
@@ -62,6 +65,7 @@ int buffsize = 10*1024;
          cb(type, msg, cout);
      }
  };
+
  ///multiple parameter support
  void mprint_c(MsgType type, const char* fmt, ...)
  {
@@ -149,7 +153,7 @@ int buffsize = 10*1024;
              auto err= _itoa_s(dvalue, strtemp, 16);
              if (!err)
              {
-                 std::transform(strtemp, strtemp + 8, strtemp, std::tolower);
+                 // std::transform(strtemp, strtemp + 8, strtemp, std::tolower); JMF
                  msgprefix.append(strtemp);
              }
              break;
@@ -161,7 +165,7 @@ int buffsize = 10*1024;
              auto err= _itoa_s(dvalue, strtemp, 16);
              if (!err)
              {
-                 std::transform(strtemp, strtemp + 8, strtemp, std::toupper);
+                 // std::transform(strtemp, strtemp + 8, strtemp, std::toupper); JMF
                  msgprefix.append(strtemp);
              }
              break;

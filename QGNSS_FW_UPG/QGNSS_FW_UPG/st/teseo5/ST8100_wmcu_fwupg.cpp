@@ -1,4 +1,5 @@
 #include "ST8100_wmcu_fwupg.h"
+#include <cmath>
 
 ST8100_wmcu_fwupg::ST8100_wmcu_fwupg()
 {
@@ -293,7 +294,7 @@ bool ST8100_wmcu_fwupg::send_Firmware(	ClassID id, char* fwdata,
     int mis = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count();
     int progress = QG_get_progress(fwsize, totalsendsize, 100);
     float rate=((float)persize/(mis/1000.0))/1000;//
-    auto rate_s= std::to_string (std::round (rate*10.0)/10);
+    auto rate_s= std::to_string (round (rate*10.0)/10);
     char rate_fmt[1024];
     sprintf (rate_fmt,"%d Bytes/%d Bytes    %s KBps",totalsendsize,fwsize,rate_s.c_str ());
     QGPROGRESS_FMT(Send_Firmware_name, 100,rate_fmt, progress);

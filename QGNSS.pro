@@ -1,5 +1,7 @@
 TEMPLATE = subdirs
 
+QT += gui widgets uiplugin
+
 SUBDIRS += \
     QGNSS\
     QGNSSLog \

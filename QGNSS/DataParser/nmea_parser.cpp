@@ -3,6 +3,8 @@
 #include "common.h"
 #include "mainwindow.h"
 
+#define strcpy_s strcpy
+
 NMEA_Parser::NMEA_Parser(QObject *parent, NMEA_t *Nt) : QObject(parent)
 {
     this->Nt = Nt;

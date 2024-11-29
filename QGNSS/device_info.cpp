@@ -1,7 +1,7 @@
 #include "device_info.h"
 #include "ui_device_info.h"
 
-#include <windows.h>
+//#include <windows.h>
 #include <QDebug>
 #include <QCompleter>
 #include <QSerialPort>
@@ -182,8 +182,8 @@ void device_info::on_buttonBox_accepted()
 
 bool device_info::nativeEvent(const QByteArray &eventType, void *message, long *result)
 {
-    MSG* msg = reinterpret_cast<MSG*>(message);
-    if (msg->message == WM_DEVICECHANGE)
+//    MSG* msg = reinterpret_cast<MSG*>(message);
+//    if (msg->message == WM_DEVICECHANGE)
     {
         fillPortInfo();
 //        fillPortsParameters();

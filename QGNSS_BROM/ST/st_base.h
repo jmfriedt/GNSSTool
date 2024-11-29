@@ -16,6 +16,8 @@
 #define CRC32_EVAL_STR(d,c,s,l)       d = crc32_eval(c,s,l)
 #define CRC32_EVAL_INT(d,c,i)         { uint val = (i); (d) = crc32_eval(c,&val,sizeof(val)); }
 
+#define strcpy_s(a,b,c) strncpy(a,c,b)
+
 //Binary image options
    struct ImageOptions
 {

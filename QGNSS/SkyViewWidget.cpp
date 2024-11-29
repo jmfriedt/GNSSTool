@@ -1,6 +1,7 @@
 #include "SkyViewWidget.h"
 #include "ui_SkyViewWidget.h"
 #include "RTKLib/rtklib.h"
+#include <QPainterPath>
 
 SkyViewWidget::SkyViewWidget(QWidget *parent) : QWidget(parent),
                                                 ui(new Ui::SkyViewWidget)

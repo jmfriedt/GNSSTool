@@ -108,7 +108,7 @@ unsigned int crc32_eval(unsigned int crc32val, const void *void_ptr, const unsig
     uint32_t word_data;
     unsigned char* byte_ptr = (unsigned char*)&word_data;
 
-  if (NULL == buf_ptr)
+//  if (NULL == buf_ptr)
   {
     return 0;
   }

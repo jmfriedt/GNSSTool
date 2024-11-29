@@ -1,6 +1,15 @@
 #ifndef __UART_QG_UART_BASE_H__
 #define __UART_QG_UART_BASE_H__
 
+#define QG_Handle Qt::HANDLE
+#define INVALID_HANDLE_VALUE ((void*)(long long)-1)
+
+#include <string>
+#include <list>
+#include <functional>
+#include "QG_Print.h"
+#include "QG_Common.h"
+
 #include "QG_IO_Base.h"
 
 #include <thread>

@@ -311,7 +311,7 @@ bool IOserial::get_DTR()
 
 Qt::HANDLE IOserial::get_handle()
 {
-  return serial->handle ();
+  return (void*)serial->handle ();
 }
 
 QSerialPort::StopBits IOserial::get_StopBits()
