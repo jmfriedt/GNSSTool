@@ -1,4 +1,4 @@
-## Attempt to compile QGNSS for GNU/Linux
+# Attempt to compile QGNSS for GNU/Linux
 
 Although a Qt5 application, the QGNSS source code includes many Microsoft 
 specific C++ compiler features not availabe in GCC (``g++``) and hardly 
@@ -21,21 +21,25 @@ QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtem
 See the [patch](patch) file generated with ``git diff`` after modifying the original source code so
 it compiles under GNU/Linux.
 
-# Requirements:
+## Requirements:
 
 Dependencies (Debian GNU/Linux unstable): at least
 ```
 sudo apt install qtwebengine5-dev qttools5-dev
 ```
-and a functional ``clang/clang++`` compiler
+and a functional ``clang/clang++`` compiler (``sudo apt install clang`` after of course at least ``build-essential``).
 
-# Compiling:
+## Compiling:
 
 ```
 qmake QGNSS.pro  # generate Makefile in current directory
 make             # generate Makefile in QGNSS: check that CC = clang and CXX = clang++
+./DevRuntimeEnv/QGNSS  # execute application
 ```
 
 <img src="2024-11-29-180920_2704x1050_scrot.png">
 
 Version compiled and executed on Debian GNU/Linux.
+
+At the moment ``QGNSSLog`` is failing to compile due to the dependency with ``QNMEA/3rdpart`` which might be
+provided as binary library only

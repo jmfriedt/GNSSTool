@@ -351,12 +351,12 @@ if (FMT_INSTALL)
 endif ()
 
 if (FMT_DOC)
-  add_subdirectory(doc)
+#  add_subdirectory(doc)
 endif ()
 
 if (FMT_TEST)
-  enable_testing()
-  add_subdirectory(test)
+#  enable_testing()
+#  add_subdirectory(test)
 endif ()
 
 # Control fuzzing independent of the unit tests.
