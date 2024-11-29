@@ -30,6 +30,6 @@ INCLUDEPATH += \
     $$PWD/QGNSS_FW_UPG/st/teseo5 \
     $$PWD/QGNSS_FW_UPG/uart
 
- LIBS += -lAdvAPI32
+# LIBS += -lAdvAPI32
 
  DEFINES += QG_OUTPUT_DEBUG
