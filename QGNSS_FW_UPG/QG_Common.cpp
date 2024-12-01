@@ -110,18 +110,26 @@
      return std::string();
    }
 
-   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF // JMF
+// If s is a null pointer, resets its internal conversion state to represent the 
+// initial shift state and returns ... a non-zero value if the current multibyte 
+// encoding is state-dependent (uses shift sequences). 
+   int size = wcstombs(NULL,&wstr[0],(int)wstr.size());
+   // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
    std::string ret = std::string(size, 0);
-//   WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL); // CP_UTF8  // JMF
+   // WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL);
+   wcstombs(&ret[0],&wstr[0],size);
    return ret;
  }
 
+#include <cstring> // memset()
  std::wstring StringToWString(const std::string& str)
  {
-   int len; // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0); JMF
+   int len=mblen(str.c_str(),MB_CUR_MAX); 
+       // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);
    wchar_t* wide = new wchar_t[len + 1];
-//   memset(wide, '\0', sizeof(wchar_t) * (len + 1)); // JMF
-//   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);  JMF
+   memset(wide, '\0', sizeof(wchar_t) * (len + 1));
+   mbstowcs(wide,str.c_str(),len);
+//   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len); 
    std::wstring w_str(wide);
    delete[] wide;
    return w_str;
