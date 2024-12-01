@@ -4,11 +4,7 @@
 #define QG_Handle Qt::HANDLE
 #define INVALID_HANDLE_VALUE ((void*)(long long)-1)
 
-#include <string>
-#include <list>
-#include <functional>
-#include "QG_Print.h"
-#include "QG_Common.h"
+#include <Qt>
 
 #include "QG_IO_Base.h"
 

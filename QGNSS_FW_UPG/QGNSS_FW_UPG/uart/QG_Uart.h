@@ -4,12 +4,6 @@
 #include <Qt>
 #include "QG_Uart_Base.h"
 
-#include <string>
-#include <list>
-#include <functional>
-#include "QG_Print.h"
-#include "QG_Common.h"
-
 #define DEFAULTQUEUESIZE 6000
 #define DEFAULTWAITEVENTTIME 500
 

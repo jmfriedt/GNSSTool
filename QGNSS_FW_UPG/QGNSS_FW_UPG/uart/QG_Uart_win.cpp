@@ -1,4 +1,4 @@
-#include "QG_Uart.h"
+#include "QG_Uart.h"   // JMF this whole file has been broken and must be adapted to unix tty
 
 #define DWORD int32_t
 #define BOOL bool

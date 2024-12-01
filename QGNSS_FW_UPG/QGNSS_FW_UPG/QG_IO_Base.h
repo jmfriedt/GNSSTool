@@ -1,9 +1,3 @@
-#include <string>
-#include <list>
-#include <functional>
-#include "QG_Print.h"
-#include "QG_Common.h"
-
 #include <Qt>
 #include <string>
 #include <list>

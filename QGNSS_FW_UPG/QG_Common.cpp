@@ -63,7 +63,7 @@
  {
      std::size_t filesize = 0;
      FILE* fp = fopen(filename, /*"rb"*/mode);
-//     if (fp == INVALID_HANDLE_VALUE)
+//     if (fp == INVALID_HANDLE_VALUE)  // JMF
 //     {
 //        return filesize;
 //     }
@@ -81,7 +81,7 @@
  {
      std::size_t readsize = 0;
      FILE* fp = fopen(filename, /*"rb"*/mode);
-//     if (fp == INVALID_HANDLE_VALUE )
+//     if (fp == INVALID_HANDLE_VALUE )  // JMF
 //     {
 //         return readsize;
 //     }
@@ -104,9 +104,9 @@
      return std::string();
    }
 
-   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF
+   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF // JMF
    std::string ret = std::string(size, 0);
-//   WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL); // CP_UTF8
+//   WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL); // CP_UTF8  // JMF
    return ret;
  }
 
@@ -114,7 +114,7 @@
  {
    int len; // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0); JMF
    wchar_t* wide = new wchar_t[len + 1];
-//   memset(wide, '\0', sizeof(wchar_t) * (len + 1));
+//   memset(wide, '\0', sizeof(wchar_t) * (len + 1)); // JMF
 //   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);  JMF
    std::wstring w_str(wide);
    delete[] wide;
