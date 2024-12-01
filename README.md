@@ -24,14 +24,6 @@ QGNSS_FW_UPG/QGNSS_FW_UPG/uart/QG_Uart_win.cpp:#include "QG_Uart.h"   // JMF thi
 QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT
 QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::tolower); JMF
 QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::toupper); JMF
-README.md:$ grep -r JMF * | grep cpp
-README.md:QGNSS/deviation_map.cpp:    ui->customPlot->axisRect(0)->setAutoMargins(QCP::msNone); // 去除边框 JMF
-README.md:QGNSS_FW_UPG/QG_Common.cpp:   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF
-README.md:QGNSS_FW_UPG/QG_Common.cpp:   int len; // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0); JMF
-README.md:QGNSS_FW_UPG/QG_Common.cpp://   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);  JMF
-README.md:QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT (not using the base)
-README.md:QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::tolower); JMF
-README.md:QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::toupper); JMF
 ```
 
 See the [patch](patch) file generated with ``git diff`` after modifying the original source code so
