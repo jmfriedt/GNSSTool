@@ -10,12 +10,28 @@ removed to reach compilation but should be inserted back are
 ```bash
 $ grep -r JMF * | grep cpp
 QGNSS/deviation_map.cpp:    ui->customPlot->axisRect(0)->setAutoMargins(QCP::msNone); // 去除边框 JMF
-QGNSS_FW_UPG/QG_Common.cpp:   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF
+QGNSS/device_info.cpp://    MSG* msg = reinterpret_cast<MSG*>(message);  // JMF
+QGNSS/device_info.cpp://    if (msg->message == WM_DEVICECHANGE)         // JMF
+QGNSS_FW_UPG/crc32.cpp://  if (NULL == buf_ptr)  // JMF
+QGNSS_FW_UPG/QG_Common.cpp://     if (fp == INVALID_HANDLE_VALUE)  // JMF
+QGNSS_FW_UPG/QG_Common.cpp://     if (fp == INVALID_HANDLE_VALUE )  // JMF
+QGNSS_FW_UPG/QG_Common.cpp:   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); // JMF
+QGNSS_FW_UPG/QG_Common.cpp://   WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), &ret[0], size, NULL, NULL); // CP_UTF8  // JMF
 QGNSS_FW_UPG/QG_Common.cpp:   int len; // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0); JMF
+QGNSS_FW_UPG/QG_Common.cpp://   memset(wide, '\0', sizeof(wchar_t) * (len + 1)); // JMF
 QGNSS_FW_UPG/QG_Common.cpp://   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);  JMF
-QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT (not using the base)
+QGNSS_FW_UPG/QGNSS_FW_UPG/uart/QG_Uart_win.cpp:#include "QG_Uart.h"   // JMF this whole file has been broken and must be adapted to unix tty
+QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT
 QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::tolower); JMF
 QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::toupper); JMF
+README.md:$ grep -r JMF * | grep cpp
+README.md:QGNSS/deviation_map.cpp:    ui->customPlot->axisRect(0)->setAutoMargins(QCP::msNone); // 去除边框 JMF
+README.md:QGNSS_FW_UPG/QG_Common.cpp:   int size; // = WideCharToMultiByte(CP_ACP, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL); JMF
+README.md:QGNSS_FW_UPG/QG_Common.cpp:   int len; // = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0); JMF
+README.md:QGNSS_FW_UPG/QG_Common.cpp://   MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, wide, len);  JMF
+README.md:QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT (not using the base)
+README.md:QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::tolower); JMF
+README.md:QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::toupper); JMF
 ```
 
 See the [patch](patch) file generated with ``git diff`` after modifying the original source code so
