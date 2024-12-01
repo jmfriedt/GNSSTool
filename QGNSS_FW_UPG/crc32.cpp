@@ -101,6 +101,8 @@ function implementations (scope: module-local)
 function implementations (scope: module-exported)
 *****************************************************************************/
 
+#define NULL nullptr
+
 unsigned int crc32_eval(unsigned int crc32val, const void *void_ptr, const unsigned int len)
 {
     uint32_t i,j;
@@ -108,7 +110,7 @@ unsigned int crc32_eval(unsigned int crc32val, const void *void_ptr, const unsig
     uint32_t word_data;
     unsigned char* byte_ptr = (unsigned char*)&word_data;
 
-//  if (NULL == buf_ptr)  // JMF
+  if (NULL == buf_ptr)
   {
     return 0;
   }
