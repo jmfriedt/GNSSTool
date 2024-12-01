@@ -59,14 +59,20 @@
     return s1 == s2;
 }
 
+#define INVALID_HANDLE_VALUE nullptr
+// from man fopen: 
+// Upon  successful  completion  fopen(),  fdopen(), and freopen() return a
+// FILE pointer.  Otherwise, NULL is returned and errno is set to  indicate
+// the error.
+
  std::size_t QG_file_size(const char* filename, const char* mode)
  {
      std::size_t filesize = 0;
      FILE* fp = fopen(filename, /*"rb"*/mode);
-//     if (fp == INVALID_HANDLE_VALUE)  // JMF
-//     {
-//        return filesize;
-//     }
+     if (fp == INVALID_HANDLE_VALUE)
+     {
+        return filesize;
+     }
      if (!fp) { filesize = 0; return filesize; }
      fseek(fp, 0L, SEEK_END);
      filesize = ftell(fp);
@@ -81,10 +87,10 @@
  {
      std::size_t readsize = 0;
      FILE* fp = fopen(filename, /*"rb"*/mode);
-//     if (fp == INVALID_HANDLE_VALUE )  // JMF
-//     {
-//         return readsize;
-//     }
+     if (fp == INVALID_HANDLE_VALUE ) 
+     {
+         return readsize;
+     }
      data.resize(size);
      readsize= fread(data.data(), 1, size, fp);
      data= data.substr(0, readsize);
