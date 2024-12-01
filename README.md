@@ -13,9 +13,6 @@ QGNSS/deviation_map.cpp:    ui->customPlot->axisRect(0)->setAutoMargins(QCP::msN
 QGNSS/device_info.cpp://    MSG* msg = reinterpret_cast<MSG*>(message);  // JMF
 QGNSS/device_info.cpp://    if (msg->message == WM_DEVICECHANGE)         // JMF
 QGNSS_FW_UPG/QGNSS_FW_UPG/uart/QG_Uart_win.cpp:#include "QG_Uart.h"   // JMF this whole file has been broken and must be adapted to unix tty
-QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:#define _itoa_s(a,b,c) sprintf(b, "%d", a) // JMF CORRECT
-QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::tolower); JMF
-QGNSS_FW_UPG/QGNSS_FW_UPG/QG_Print.cpp:                 // std::transform(strtemp, strtemp + 8, strtemp, std::toupper); JMF
 ```
 
 See the [patch](patch) file generated with ``git diff`` after modifying the original source code so
