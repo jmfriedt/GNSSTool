@@ -15,8 +15,9 @@ QGNSS/device_info.cpp://    if (msg->message == WM_DEVICECHANGE)         // JMF
 QGNSS_FW_UPG/QGNSS_FW_UPG/uart/QG_Uart_win.cpp:#include "QG_Uart.h"   // JMF this whole file has been broken and must be adapted to unix tty
 ```
 
-See the [patch](patch) file generated with ``git diff`` after modifying the original source code so
-it compiles under GNU/Linux.
+It might be wise to ``diff -r`` this directory with the original repository to
+check that the modifications to get the software to compile under GNU/Linux kept
+the original meaning.
 
 ## Requirements:
 
